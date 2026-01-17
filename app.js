@@ -404,7 +404,7 @@ app.get("/provider-booking-history", async (req, res) => {
     const bookings = await Booking.find({
       providerId: req.session.providerId
     })
-    .populate("userId")          // 👈 THIS SENDS USER DATA
+    .populate("userId")          
     .sort({ createdAt: -1 });
 
     res.render("provider-booking-history", { bookings });
