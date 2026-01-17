@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Service Provider Profile</title>
+  <link rel="stylesheet" href="/css/provider-profile.css">
+</head>
+<body>
+
+<!-- 🔝 HEADER -->
+<div class="header">
+  <h1>ServiceHub</h1>
+  <div class="nav">
+    <a href="/provider-dashboard">Dashboard</a>
+    <a href="/provider-booking-history">Booking</a>
+    <a href="/provider/profile">Profile</a>
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+
+<!-- 🧱 MAIN -->
+<div class="main">
+  <div class="profile-card">
+
+    <!-- 👤 LEFT -->
+    <div class="profile-left">
+      <img src="/images/provider.png" class="avatar">
+
+      <h2><%= provider.name %></h2>
+
+      <span class="badge">
+        <%= provider.isAvailable ? "Available" : "Offline" %>
+      </span>
+    </div>
+
+    <!-- 📄 RIGHT -->
+    <div class="profile-right">
+      <h3>Provider Details</h3>
+
+      <div class="info">
+        <div>
+          <b>Email</b><br>
+          <%= provider.email %>
+        </div>
+
+        <div>
+          <b>Phone</b><br>
+          <%= provider.phone %>
+        </div>
+
+        <div>
+          <b>Service</b><br>
+          <%= provider.serviceType %>
+        </div>
+
+        <div>
+          <b>City</b><br>
+          <%= provider.city %>
+        </div>
+
+        <div>
+          <b>Experience</b><br>
+          <%= provider.experience %> years
+        </div>
+
+        <div>
+          <b>Price / Visit</b><br>
+          ₹<%= provider.pricePerVisit %>
+        </div>
+      </div>
+
+      <!-- 📊 STATS -->
+      <div class="stats">
+        <div class="stat">
+          <h2>⭐ 4.8</h2>
+          <p>Rating</p>
+        </div>
+
+        <div class="stat">
+          <h2>128</h2>
+          <p>Total Jobs</p>
+        </div>
+
+        <div class="stat">
+          <h2>₹52k</h2>
+          <p>Earnings</p>
+        </div>
+      </div>
+
+      <!-- 🔘 ACTIONS -->
+      <div class="actions">
+        <button class="btn primary"
+          onclick="location.href='/provider-dashboard'">
+          Dashboard
+        </button>
+
+        <button class="btn secondary"
+          onclick="location.href='/provider/profile/edit'">
+          Edit Profile
+        </button>
+
+        <button class="btn logout"
+          onclick="location.href='/logout'">
+          Logout
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

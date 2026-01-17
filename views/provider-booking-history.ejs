@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking History</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/provider-booking-history.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="logo">ServiceHub</div>
+    <nav>
+      <a href="/provider-dashboard">Dashboard</a>
+      <a href="/provider-booking-history">Bookings</a>
+      <a href="/provider-profile">Profile</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+    <div class="booking-list">
+
+  <% if (bookings.length === 0) { %>
+    <p>No bookings found</p>
+  <% } %>
+
+  <% bookings.forEach(booking => { %>
+    <div class="booking-card">
+
+      <div class="booking-left">
+        <h3><%= booking.serviceName %></h3>
+
+        <p>
+          Customer:
+          <%= booking.userId ? booking.userId.name : "Not Available" %>
+        </p>
+
+        <p>
+          Date: <%= booking.date %> | Time: <%= booking.time %>
+        </p>
+      </div>
+
+      <div class="booking-right">
+        <span class="status <%= booking.status.toLowerCase() %>">
+          <%= booking.status %>
+        </span>
+        <p class="price">
+        <%= new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR'
+            }).format(booking.price) %>
+        </p>
+
+
+      </div>
+
+    </div>
+  <% }) %>
+
+</div>
+
+</body>
+</html>

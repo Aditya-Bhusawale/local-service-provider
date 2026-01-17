@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup | ServiceHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body class="auth-body">
+
+<header class="auth-header">
+  <div class="auth-logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png">
+    <span>ServiceHub</span>
+  </div>
+
+  <nav>
+    <a href="/login">Login</a>
+  </nav>
+</header>
+
+<div class="auth-container">
+
+  <div class="auth-left">
+    <img src="https://images.unsplash.com/photo-1581091215367-59ab6c1dbb36">
+    <div class="auth-left-text">
+      <h2>Book Services Easily</h2>
+      <p>Quick • Reliable • Verified</p>
+    </div>
+  </div>
+
+  <div class="auth-right">
+    <div class="auth-card">
+
+      <div class="auth-heading">
+        <h1>Create account</h1>
+        <p>Get trusted home services instantly</p>
+      </div>
+
+      <form action="/user-signup" method="POST">
+        <input type="text" name="name" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <input type="tel" name="phone" placeholder="Phone number" required>
+        <input type="password" name="password" placeholder="Create password" required>
+        <button type="submit">Continue</button>
+      </form>
+
+      <div class="auth-links">
+        <a href="/login">Already have an account? Login</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

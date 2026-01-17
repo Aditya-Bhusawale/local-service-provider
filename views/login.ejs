@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | ServiceHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body class="auth-body">
+
+<!-- HEADER -->
+<header class="auth-header">
+  <div class="auth-logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png">
+    <span>ServiceHub</span>
+  </div>
+
+  <nav>
+    <a href="/home">Home</a>
+  </nav>
+</header>
+
+<!-- PAGE -->
+<div class="auth-container">
+
+  <!-- LEFT IMAGE -->
+  <div class="auth-left">
+    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+    <div class="auth-left-text">
+      <h2>Trusted Home Services</h2>
+      <p>Electrician • Plumber • Cleaning</p>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="auth-right">
+    <div class="auth-card">
+
+      <div class="auth-heading">
+        <h1>Login</h1>
+        <p>Access your ServiceHub account</p>
+      </div>
+
+      <form action="/login" method="POST">
+        <input type="email" name="email" placeholder="Email address" required>
+
+        <input type="password" name="password" placeholder="Password" required>
+
+        <div class="role-toggle">
+          <input type="radio" id="user" name="role" value="user" required hidden>
+          <input type="radio" id="serviceprovider" name="role" value="serviceprovider" hidden>
+
+          <label for="user" class="role-card">
+            👤 User
+          </label>
+
+          <label for="serviceprovider" class="role-card">
+            🛠 Service Provider
+          </label>
+        </div>
+
+
+        <br><br>
+        <button type="submit">Continue</button>
+      </form>
+
+
+      <div class="auth-links">
+        <a href="/user-signup">Create user account</a>
+        <a href="/serviceprovider-signup">Join as service provider</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Partner Signup | ServiceHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body class="auth-body">
+
+<!-- HEADER -->
+<header class="auth-header">
+  <div class="auth-logo">
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" alt="logo">
+    <span>ServiceHub</span>
+  </div>
+
+  <nav>
+    <a href="/home">Home</a>
+    <a href="/login">Login</a>
+  </nav>
+</header>
+
+<!-- PAGE CONTENT -->
+<div class="auth-container">
+
+  <!-- LEFT IMAGE -->
+  <div class="auth-left">
+    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" alt="service provider">
+    <div class="auth-left-text">
+      <h2>Grow Your Business</h2>
+      <p>Join as a verified service professional</p>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="auth-right">
+    <div class="auth-card">
+
+      <div class="auth-heading">
+        <h1>Partner Signup</h1>
+        <p>Start earning with ServiceHub</p>
+      </div>
+
+      <form action="/serviceprovider-signup" method="POST">
+        <input type="text" name="name" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <input type="tel" name="phone" placeholder="Phone number" required>
+        <input type="text" name="serviceType" placeholder="Service type (Plumber, Electrician)" required>
+        <input type="password" name="password" placeholder="Create password" required>
+
+        <button type="submit">Continue</button>
+      </form>
+
+      <div class="auth-links">
+        <a href="/login">Already a partner? Login</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

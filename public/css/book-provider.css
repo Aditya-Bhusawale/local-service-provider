@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+/* ---------- TOP BAR ---------- */
+.topbar {
+  background: #1e293b;
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar .logo {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.topbar .back {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* ---------- MAIN LAYOUT ---------- */
+.booking-wrapper {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+  gap: 30px;
+}
+
+/* ---------- PROVIDER CARD ---------- */
+.provider-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+.provider-card img {
+  width: 240px;
+  object-fit: cover;
+}
+
+.provider-card .details {
+  padding: 25px;
+}
+
+.provider-card h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0284c7;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+/* ---------- STATS ---------- */
+.stats {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.about {
+  font-size: 14px;
+  color: #334155;
+  margin-bottom: 15px;
+}
+
+.extra {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #475569;
+}
+
+/* ---------- BOOKING CARD ---------- */
+.booking-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 20px;
+}
+
+.booking-card h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* ---------- FORM ---------- */
+label {
+  font-size: 13px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 15px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* ---------- BUTTON ---------- */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* ---------- PRICE BOX ---------- */
+.price-box {
+  margin-top: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+}
+
+.price-box p {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.price-box h2 {
+  font-size: 26px;
+  color: #16a34a;
+}
+
+.price-box span {
+  font-size: 12px;
+  color: #475569;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .booking-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .provider-card {
+    flex-direction: column;
+  }
+
+  .provider-card img {
+    width: 100%;
+    height: 220px;
+  }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Booking Status</title>
+  <link rel="stylesheet" href="/css/booking-status.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Booking Status</h1>
+
+  <!-- STATUS BADGE -->
+  <div class="status <%= booking.status.toLowerCase() %>">
+    <%= booking.status %>
+  </div>
+
+  <!-- BOOKING DETAILS -->
+  <div class="card">
+    <h3>Booking Details</h3>
+    <p><b>Date:</b> <%= booking.date %></p>
+    <p><b>Time:</b> <%= booking.time %></p>
+    <p><b>Booking ID:</b> <%= booking._id %></p>
+  </div>
+
+  <!-- PROVIDER INFO -->
+  <div class="card">
+    <h3>Service Provider</h3>
+
+    <% if (booking.providerId) { %>
+      <p><b>Name:</b> <%= booking.providerId.name %></p>
+      <p><b>Service:</b> <%= booking.providerId.serviceType %></p>
+      <p><b>Phone:</b> <%= booking.providerId.phone %></p>
+      <p><b>City:</b> <%= booking.providerId.city %></p>
+    <% } else { %>
+      <p>Provider details not available</p>
+    <% } %>
+  </div>
+
+  <!-- USER INFO -->
+  <div class="card">
+    <h3>User</h3>
+
+    <% if (booking.userId) { %>
+      <p><b>Name:</b> <%= booking.userId.name %></p>
+      <p><b>Email:</b> <%= booking.userId.email %></p>
+      <p><b>Phone:</b> <%= booking.userId.phone %></p>
+    <% } else { %>
+      <p>User details not available</p>
+    <% } %>
+  </div>
+
+</div>
+
+</body>
+</html>

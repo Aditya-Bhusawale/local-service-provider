@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="/css/provider-profile.css">
+</head>
+<body>
+
+<!-- 🔝 HEADER -->
+<div class="header">
+  <h1>ServiceHub</h1>
+  <div class="nav">
+    <a href="/provider-dashboard">Dashboard</a>
+    <a href="/provider/profile">Profile</a>
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+
+<!-- 🧱 MAIN -->
+<div class="main">
+  <div class="profile-card">
+    <!-- LEFT -->
+    <div class="profile-left">
+      <img src="/images/provider.png" class="avatar">
+      <h2><%= provider.name %></h2>
+      <span class="badge">Edit Mode</span>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="profile-right">
+      <h3>Edit Profile</h3>
+
+      <form action="/provider/profile/edit" method="POST">
+
+        <div class="info">
+          <div>
+            <b>Name</b><br>
+            <input type="text" name="name" value="<%= provider.name %>" required>
+          </div>
+
+          <div>
+            <b>Phone</b><br>
+            <input type="text" name="phone" value="<%= provider.phone %>" required>
+          </div>
+
+          <div>
+            <b>City</b><br>
+            <input type="text" name="city" value="<%= provider.city %>" required>
+          </div>
+
+          <div>
+            <b>Service</b><br>
+            <input type="text" value="<%= provider.serviceType %>" disabled>
+          </div>
+
+          <div>
+            <b>Experience (years)</b><br>
+            <input type="number" name="experience" value="<%= provider.experience %>">
+          </div>
+
+          <div>
+            <b>Price / Visit</b><br>
+            <input type="number" name="pricePerVisit" value="<%= provider.pricePerVisit %>">
+          </div>
+        </div>
+
+        <div class="info">
+          <div style="grid-column: span 2;">
+            <b>About</b><br>
+            <textarea name="about" rows="4"><%= provider.about %></textarea>
+          </div>
+        </div>
+
+        <div class="info">
+          <div>
+            <b>Availability</b><br>
+            <select name="isAvailable">
+              <option value="true" <%= provider.isAvailable ? "selected" : "" %>>Available</option>
+              <option value="false" <%= !provider.isAvailable ? "selected" : "" %>>Offline</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" type="submit">
+            Save Changes
+          </button>
+
+          <button class="btn secondary" type="button"
+            onclick="location.href='/provider/profile'">
+            Cancel
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

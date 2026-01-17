@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %> | ServiceHub</title>
+  <link rel="stylesheet" href="/css/service-detail.css">
+</head>
+<body>
+
+<header class="main-header">
+  <div class="logo">ServiceHub</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/services">Services</a>
+    <a href="#">Pricing</a>
+    <a href="#">Resources</a>
+    <a href="/login">Sign in</a>
+    <button class="nav-btn">Contact sales</button>
+  </nav>
+</header>
+
+<div class="top-bar">
+  <h2><%= title %></h2>
+  <button id="locationBtn">📍 Use Current Location</button>
+</div>
+
+<p class="hint">Allow location to see nearby professionals</p>
+
+<div class="provider-list" id="providers"></div>
+
+<script>
+  const providers = <%- JSON.stringify(providers) %>;
+  const serviceName = "<%= serviceName %>";
+
+  const btn = document.getElementById("locationBtn");
+  const list = document.getElementById("providers");
+
+  btn.onclick = () => {
+    navigator.geolocation.getCurrentPosition(() => {
+      document.querySelector(".hint").style.display = "none";
+      list.innerHTML = "";
+
+      providers.forEach(p => {
+        list.innerHTML += `
+          <div class="provider-card">
+            <img src="${p.image}" class="service-img">
+            <div class="info">
+              <h3>${p.name}</h3>
+              <p class="service">${serviceName}</p>
+              <p class="meta">⭐ ${p.rating} • ${p.distance} km</p>
+            </div>
+            <button class="book-btn">Book</button>
+          </div>
+        `;
+      });
+    });
+  };
+</script>
+
+</body>
+</html>

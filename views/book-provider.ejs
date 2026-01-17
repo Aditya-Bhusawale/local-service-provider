@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Provider</title>
+
+  <link rel="stylesheet" href="/css/book-provider.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">ServiceHub</div>
+  <a href="/provider-selection" class="back">
+    <i class="fas fa-arrow-left"></i> Back
+  </a>
+</header>
+
+<main class="booking-wrapper">
+
+  <!-- PROVIDER CARD -->
+  <section class="provider-card">
+    <img src="/images/default-provider.png" alt="Provider">
+
+    <div class="details">
+      <h2><%= provider.name %></h2>
+
+      <span class="badge"><%= provider.serviceType %></span>
+
+      <div class="stats">
+        <span>⭐ <%= provider.rating || 4.5 %></span>
+        <span><i class="fas fa-location-dot"></i> <%= provider.city %></span>
+      </div>
+
+      <p class="about">
+        <%= provider.about || "Professional and reliable service provider with quality experience." %>
+      </p>
+
+      <div class="extra">
+        <span><i class="fas fa-briefcase"></i> <%= provider.experience %> yrs experience</span>
+        <span><i class="fas fa-circle-check"></i> Available</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking-card">
+    <h3>Book Appointment</h3>
+
+    <form action="/confirm-booking" method="POST">
+      <input type="hidden" name="providerId" value="<%= provider._id %>">
+
+      <label>Date</label>
+      <input type="date" name="date" required>
+
+      <label>Time</label>
+      <input type="time" name="time" required>
+
+      <button type="submit">
+        <i class="fas fa-calendar-check"></i> Confirm Booking
+      </button>
+    </form>
+
+    <div class="price-box">
+      <p>Service Price</p>
+      <h2>₹ <%= provider.pricePerVisit %></h2>
+      <span>per visit</span>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

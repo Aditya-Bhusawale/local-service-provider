@@ -1,0 +1,282 @@
+/* ========== COLOR PALETTE ========== */
+:root {
+  --primary: #000000;
+  --bg: #ffffff;
+  --card-bg: #ffffff;
+  --muted: #374151;
+  --border: #e5e7eb;
+}
+
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ========== BACKGROUND + ANIMATION ========== */
+body {
+  background: #ffffff;
+  color: var(--primary);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* animated blobs */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+body::before {
+  background: #949494;
+  top: -120px;
+  left: -120px;
+  animation: blobOne 28s ease-in-out infinite alternate;
+}
+
+body::after {
+  background: #2f3232;
+  bottom: -120px;
+  right: -120px;
+  animation: blobTwo 32s ease-in-out infinite alternate;
+}
+
+@keyframes blobOne {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(160px, 120px);
+  }
+}
+
+@keyframes blobTwo {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-160px, -120px);
+  }
+}
+
+/* ========== ATTRACTIVE HEADER ========== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+
+  padding: 16px 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: box-shadow 0.3s ease;
+}
+
+/* subtle shadow when scrolling */
+.topbar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.topbar:hover::after {
+  opacity: 1;
+}
+
+/* LOGO */
+.topbar .logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #000;
+}
+
+/* NAV */
+.topbar nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.topbar nav a {
+  color: #111;
+  font-size: 14.5px;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding: 6px 0;
+}
+
+/* underline animation */
+.topbar nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #000;
+  transition: width 0.25s ease;
+}
+
+.topbar nav a:hover::after {
+  width: 100%;
+}
+
+/* CTA BUTTON */
+.nav-btn {
+  background: linear-gradient(135deg, #000000, #222222);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+
+/* ========== MAIN CONTAINER ========== */
+.container {
+  max-width: 1200px;
+  margin: 90px auto 50px;
+  padding: 0 48px;
+}
+
+.container h1 {
+  margin-bottom: 28px;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+/* ========== PROVIDERS GRID ========== */
+.providers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+/* ========== PROVIDER CARD ========== */
+.provider-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.provider-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+.provider-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* INFO */
+.provider-card .info {
+  padding: 20px;
+}
+
+.provider-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.provider-card .service {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* META */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.provider-card p {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+/* ========== BUTTON ========== */
+.book-btn {
+  margin-top: 14px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 11px;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.book-btn:hover {
+  background: #111111;
+}
+
+/* DISABLED */
+.book-btn.disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 14px 24px;
+  }
+
+  .container {
+    margin-top: 70px;
+    padding: 0 24px;
+  }
+
+  .container h1 {
+    font-size: 32px;
+  }
+
+  .providers {
+    gap: 22px;
+  }
+}

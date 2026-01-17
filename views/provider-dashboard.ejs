@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Provider Dashboard</title>
+
+  <link rel="stylesheet" href="/css/provider-dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="topbar">
+  <div class="logo">ServiceHub</div>
+  <nav>
+    <a href="/provider-dashboard">Dashboard</a>
+    <a href="/provider-booking-history">Booking</a>
+    <a href="/provider-profile">Profile</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main class="container">
+
+  <!-- ================= PROFILE CARD ================= -->
+  <section class="profile-card">
+    <img src="/images/default-provider.png" alt="Provider">
+
+    <div>
+      <h3><%= provider.name %></h3>
+      <p><%= provider.serviceType %></p>
+
+      <span class="status <%= provider.isAvailable ? 'online' : 'offline' %>">
+        <%= provider.isAvailable ? 'Available' : 'Offline' %>
+      </span>
+    </div>
+
+    <!-- Availability Toggle -->
+    <form action="/provider/toggle-availability" method="POST">
+      <label class="switch">
+        <input type="checkbox"
+               onchange="this.form.submit()"
+               <%= provider.isAvailable ? 'checked' : '' %>>
+        <span class="slider"></span>
+      </label>
+    </form>
+  </section>
+
+  <!-- ================= STATS ================= -->
+  <section class="stats">
+    <div class="stat-card blue">
+      <i class="fas fa-wallet"></i>
+      <h4>Today</h4>
+      <p>₹ <%= provider.todayEarnings || 0 %></p>
+    </div>
+
+    <div class="stat-card green">
+      <i class="fas fa-chart-line"></i>
+      <h4>This Week</h4>
+      <p>₹ <%= provider.weekEarnings || 0 %></p>
+    </div>
+
+    <div class="stat-card purple">
+      <i class="fas fa-calendar"></i>
+      <h4>This Month</h4>
+      <p>₹ <%= provider.monthEarnings || 0 %></p>
+    </div>
+
+    <div class="stat-card orange">
+      <i class="fas fa-briefcase"></i>
+      <h4>Jobs Today</h4>
+      <p><%= jobsTodayCount %></p>
+    </div>
+  </section>
+
+  <!-- ================= BOOKINGS GRID ================= -->
+  <section class="grid">
+
+    <!-- ===== NEW BOOKING REQUESTS ===== -->
+    <div class="box">
+      <h2>New Booking Requests</h2>
+
+      <% if (!bookings || bookings.length === 0) { %>
+        <p class="empty">No new booking requests</p>
+      <% } %>
+
+      <% bookings.forEach(b => { %>
+        <div class="request">
+          <div>
+
+            <% if (b.userId) { %>
+              <h4><%= b.userId.name %></h4>
+            <% } else { %>
+              <h4>Unknown User</h4>
+            <% } %>
+
+            <p>
+              <i class="fas fa-calendar"></i>
+              <%= b.date %> • <%= b.time %>
+            </p>
+          </div>
+
+          <div class="actions">
+            <form action="/booking/<%= b._id %>/accept" method="POST">
+              <button class="accept">
+                <i class="fas fa-check"></i> Accept
+              </button>
+            </form>
+
+            <form action="/booking/<%= b._id %>/reject" method="POST">
+              <button class="reject">
+                <i class="fas fa-xmark"></i> Reject
+              </button>
+            </form>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+    <!-- ===== TODAY'S JOBS ===== -->
+    <div class="box">
+      <h2>Today’s Jobs</h2>
+
+      <% if (!todayJobs || todayJobs.length === 0) { %>
+        <p class="empty">No jobs for today</p>
+      <% } %>
+
+      <% todayJobs.forEach(job => { %>
+        <div class="job">
+
+          <i class="fas fa-tools"></i>
+
+          <div class="job-info">
+            <h4><%= job.serviceType %></h4>
+
+            <p class="meta">
+              <i class="fas fa-clock"></i> <%= job.time %> &nbsp;•&nbsp;
+              <i class="fas fa-location-dot"></i> <%= job.city %>
+            </p>
+
+            <p class="user">
+              <i class="fas fa-user"></i>
+              <%= job.userId ? job.userId.name : "Unknown User" %>
+            </p>
+          </div>
+
+          <span class="badge accepted">Accepted</span>
+
+        </div>
+      <% }) %>
+    </div>
+
+  </section>
+
+</main>
+
+</body>
+</html>
