@@ -56,5 +56,3 @@ This project solves that problem by providing a centralized platform where:
 - MongoDB
 
 
-## 📂 Project Folder Structure
-
