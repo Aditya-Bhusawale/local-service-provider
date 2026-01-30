@@ -392,6 +392,14 @@ app.post("/provider/profile/edit", async (req, res) => {
 });
 
 
+<<<<<<< HEAD
+=======
+    const bookings = await Booking.find({
+      providerId: req.session.providerId
+    })
+    .populate("userId")          
+    .sort({ createdAt: -1 });
+>>>>>>> eb1262dadfa89943c3fd7b3bbb61e8fbbe21f21d
 
 /* =======================
    LOGOUT
