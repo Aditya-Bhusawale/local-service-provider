@@ -18,10 +18,8 @@
   <header>
     <div class="logo">ServiceHub</div>
     <nav>
-      <a href="#">Home</a>
+      <a href="/home">Home</a>
       <a href="#">Services</a>
-      <a href="#">Pricing</a>
-      <a href="#">Resources</a>
       <a href="/login">Sign in</a>
       <button class="nav-btn">Contact sales</button>
     </nav>
@@ -35,12 +33,60 @@
       all available at your doorstep.
     </p>
     <div class="hero-buttons">
-      <button class="btn primary">Browse Services</button>
-      <button class="btn secondary">Become a Partner</button>
+      <button class="btn primary"><a href="/login" style="text-decoration: none; color: white;">Browse Services</a></button>
+      <button class="btn secondary"><a href="/serviceprovider-signup" style="text-decoration: none; color: white;">Become a Partner</a></button>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- SLIDING SERVICES -->
+  <section class="slider-section">
+    <h2 class="slider-title">Popular Home Services</h2>
+
+    <div class="slider">
+      <div class="slide-track">
+
+        <div class="slide-card">
+          <img src="https://d2zhlgis9acwvp.cloudfront.net/images/uploaded/electricians.jpg">
+          <h4>Electrician</h4>
+          <p>Wiring, switches & lighting</p>
+        </div>
+
+        <div class="slide-card">
+          <img src="https://www.wmhendersoninc.com/wp-content/uploads/2021/06/Local-Plumber-Broomall-WM-Henderson-Photo.jpg">
+          <h4>Plumber</h4>
+          <p>Leakage & pipeline repairs</p>
+        </div>
+
+        <div class="slide-card">
+          <img src="https://cdn.prod.website-files.com/6390e14cc734a931f8327343/679c741cfd2f81997c15fb20_Featured-image.jpg">
+          <h4>Carpenter</h4>
+          <p>Furniture & fittings</p>
+        </div>
+
+        <div class="slide-card">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+          <h4>Cleaning</h4>
+          <p>Home & office cleaning</p>
+        </div>
+
+        <!-- DUPLICATE FOR LOOP -->
+        <div class="slide-card">
+          <img src="https://d2zhlgis9acwvp.cloudfront.net/images/uploaded/electricians.jpg">
+          <h4>Electrician</h4>
+          <p>Wiring, switches & lighting</p>
+        </div>
+
+        <div class="slide-card">
+          <img src="https://www.wmhendersoninc.com/wp-content/uploads/2021/06/Local-Plumber-Broomall-WM-Henderson-Photo.jpg">
+          <h4>Plumber</h4>
+          <p>Leakage & pipeline repairs</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
   <section class="services">
     <div class="service-card">
       <img class="service-img" src="https://d2zhlgis9acwvp.cloudfront.net/images/uploaded/electricians.jpg">
@@ -73,7 +119,6 @@
       <div class="price">Starting at ₹499</div>
       <button>Book service</button>
     </div>
-  
   </section>
 
   <!-- FOOTER -->

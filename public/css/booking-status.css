@@ -1,65 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --primary: #2563eb;
+  --secondary: #0f172a;
+  --bg: #f7f9fc;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: #e5e7eb;
+  --radius: 18px;
+  --shadow: 0 15px 40px rgba(0,0,0,0.08);
+
+  --success: #22c55e;
+  --pending: #f59e0b;
+  --cancelled: #ef4444;
+}
+
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: #f1f5f9;
-  padding: 40px;
-  color: #1e293b;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
+/* =========================
+   HEADER / TOPBAR
+========================= */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+nav {
+  display: flex;
+  gap: 1.4rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
 .container {
-  max-width: 800px;
+  padding: 3rem 6%;
+  max-width: 900px;
   margin: auto;
 }
 
-h1 {
+.container h1 {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
 }
 
-/* ---------- STATUS ---------- */
+/* =========================
+   STATUS BADGE
+========================= */
 .status {
-  text-align: center;
-  padding: 10px;
-  border-radius: 10px;
+  width: fit-content;
+  margin: 0 auto 2.5rem;
+  padding: 0.5rem 1.4rem;
+  border-radius: 30px;
   font-weight: 600;
-  margin-bottom: 25px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+/* STATUS COLORS */
+.status.confirmed {
+  background: rgba(34,197,94,0.15);
+  color: var(--success);
 }
 
 .status.pending {
-  background: #fef3c7;
-  color: #92400e;
+  background: rgba(245,158,11,0.15);
+  color: var(--pending);
 }
 
-.status.accepted {
-  background: #dcfce7;
-  color: #166534;
+.status.cancelled {
+  background: rgba(239,68,68,0.15);
+  color: var(--cancelled);
 }
 
-.status.completed {
-  background: #e0f2fe;
-  color: #075985;
-}
-
-/* ---------- CARDS ---------- */
+/* =========================
+   CARDS
+========================= */
 .card {
-  background: white;
-  border-radius: 14px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 1.8rem 2rem;
+  margin-bottom: 2rem;
 }
 
 .card h3 {
-  margin-bottom: 10px;
-  font-size: 16px;
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .card p {
-  font-size: 14px;
-  margin-bottom: 6px;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-muted);
+}
+
+.card p b {
+  color: var(--text-main);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .container h1 {
+    font-size: 2rem;
+  }
 }

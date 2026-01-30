@@ -23,6 +23,69 @@
 <main class="container">
   <h1>Nearby Service Providers</h1>
 
+  <form class="filters" method="GET" action="/providers">
+
+      <select name="service">
+        <option value="">All Services</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Carpenter">Carpenter</option>
+      </select>
+
+      <input type="text" name="city" placeholder="City">
+
+      <input type="text" name="pincode" placeholder="Pincode" maxlength="6">
+
+      <select name="experience">
+        <option value="">Any Experience</option>
+        <option value="1">1+ years</option>
+        <option value="3">3+ years</option>
+        <option value="5">5+ years</option>
+      </select>
+
+      <select name="price">
+        <option value="">Any Price</option>
+        <option value="300">Up to ₹300</option>
+        <option value="500">Up to ₹500</option>
+        <option value="1000">Up to ₹1000</option>
+      </select>
+
+      <button type="submit">
+        <i class="fas fa-filter"></i> Apply Filters
+      </button>
+
+    </form>
+
+    <% if (filters && Object.keys(filters).length > 0) { %>
+      <div class="applied-filters">
+        <strong>Applied Filters:</strong>
+
+        <% if (filters.service) { %>
+          <span>Service: <%= filters.service %></span>
+        <% } %>
+
+        <% if (filters.city) { %>
+          <span>City: <%= filters.city %></span>
+        <% } %>
+
+        <% if (filters.pincode) { %>
+          <span>Pincode: <%= filters.pincode %></span>
+        <% } %>
+
+        <% if (filters.experience) { %>
+          <span><%= filters.experience %>+ yrs experience</span>
+        <% } %>
+
+        <% if (filters.price) { %>
+          <span>Up to ₹<%= filters.price %></span>
+        <% } %>
+
+        <a href="/providers" class="clear">Clear All</a>
+      </div>
+    <% } %>
+
+
+
   <section class="providers">
 
   <% if (providers.length === 0) { %>
@@ -32,7 +95,10 @@
   <% providers.forEach(p => { %>
     <div class="provider-card">
 
-      <img src="/images/default-provider.png" alt="Provider">
+      <img 
+      src="<%= p.image || 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' %>" 
+      alt="Provider"
+      onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png';">
 
       <div class="info">
         <h3><%= p.name %></h3>

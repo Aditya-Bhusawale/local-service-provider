@@ -12,12 +12,12 @@
 <!-- HEADER -->
 <header class="auth-header">
   <div class="auth-logo">
-    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png">
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" alt="logo">
     <span>ServiceHub</span>
   </div>
 
   <nav>
-    <a href="/home">Home</a>
+    <a href="/home" style="text-decoration: none; color: blue;">Home</a>
   </nav>
 </header>
 
@@ -26,7 +26,7 @@
 
   <!-- LEFT IMAGE -->
   <div class="auth-left">
-    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952">
+    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="services">
     <div class="auth-left-text">
       <h2>Trusted Home Services</h2>
       <p>Electrician • Plumber • Cleaning</p>
@@ -43,28 +43,24 @@
       </div>
 
       <form action="/login" method="POST">
+
         <input type="email" name="email" placeholder="Email address" required>
 
         <input type="password" name="password" placeholder="Password" required>
 
+        <!-- ROLE SELECTION -->
         <div class="role-toggle">
+
           <input type="radio" id="user" name="role" value="user" required hidden>
+          <label for="user" class="role-card">👤 User</label>
+
           <input type="radio" id="serviceprovider" name="role" value="serviceprovider" hidden>
+          <label for="serviceprovider" class="role-card">🛠 Service Provider</label>
 
-          <label for="user" class="role-card">
-            👤 User
-          </label>
-
-          <label for="serviceprovider" class="role-card">
-            🛠 Service Provider
-          </label>
         </div>
 
-
-        <br><br>
         <button type="submit">Continue</button>
       </form>
-
 
       <div class="auth-links">
         <a href="/user-signup">Create user account</a>

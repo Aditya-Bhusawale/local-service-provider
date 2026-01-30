@@ -9,7 +9,14 @@ const bookingSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "ServiceProvider"
   },
-
+  address: {
+    type: String,
+    required: true
+  },
+  pincode: {
+    type: String,
+    required: true
+  },
   serviceType: String,
   city: String,
 
@@ -23,6 +30,6 @@ const bookingSchema = new mongoose.Schema({
   }
 });
 
-// ✅ CREATE & EXPORT MODEL (THIS WAS MISSING)
+
 const Booking = mongoose.model("Booking", bookingSchema);
 module.exports = Booking;

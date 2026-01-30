@@ -23,7 +23,11 @@
 
     <!-- 👤 LEFT -->
     <div class="profile-left">
-      <img src="/images/provider.png" class="avatar">
+      <img
+  src="<%= provider.image || 'https://cdn-icons-png.flaticon.com/512/4140/4140048.png' %>"
+  class="avatar"
+  alt="Provider"
+  onerror="this.onerror=null;this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png';">
 
       <h2><%= provider.name %></h2>
 
@@ -56,6 +60,17 @@
           <b>City</b><br>
           <%= provider.city %>
         </div>
+
+        <div>
+          <b>Address</b><br>
+          <%= provider.address || "Not provided" %>
+        </div>
+
+        <div>
+          <b>Pincode</b><br>
+          <%= provider.pincode || "Not provided" %>
+        </div>
+
 
         <div>
           <b>Experience</b><br>

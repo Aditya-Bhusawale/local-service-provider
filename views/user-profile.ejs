@@ -22,7 +22,12 @@
 
     <!-- 👤 LEFT -->
     <div class="profile-left">
-      <img src="/images/user.png" class="avatar">
+      <img
+  src="<%= user.image || 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' %>"
+  class="avatar"
+  alt="User"
+  onerror="this.onerror=null;this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png';">
+
       <h2><%= user.name %></h2>
       <span class="badge">Active User</span>
     </div>

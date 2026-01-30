@@ -1,177 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --primary: #2563eb;
+  --secondary: #0f172a;
+  --bg: #f7f9fc;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: #e5e7eb;
+  --radius: 18px;
+  --shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: #f1f5f9;
-  color: #1e293b;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+  min-height: 100vh;
 }
 
-/* ---------- TOP BAR ---------- */
+/* =========================
+   TOPBAR
+========================= */
 .topbar {
-  background: #1e293b;
-  color: white;
-  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.topbar .logo {
-  font-size: 20px;
+.logo {
+  font-size: 1.7rem;
   font-weight: 600;
+  color: var(--primary);
 }
 
-.topbar .back {
-  color: white;
+.back {
   text-decoration: none;
-  font-size: 14px;
-}
-
-/* ---------- MAIN LAYOUT ---------- */
-.booking-wrapper {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: 2fr 1.2fr;
-  gap: 30px;
-}
-
-/* ---------- PROVIDER CARD ---------- */
-.provider-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
+  color: var(--text-muted);
+  font-weight: 400;
   display: flex;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  align-items: center;
+  gap: 6px;
+}
+
+.back:hover {
+  color: var(--primary);
+}
+
+/* =========================
+   MAIN WRAPPER
+========================= */
+.booking-wrapper {
+  padding: 3rem 6%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+}
+
+/* =========================
+   PROVIDER CARD
+========================= */
+.provider-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  display: flex;
+  gap: 1.8rem;
+  align-items: flex-start;
 }
 
 .provider-card img {
-  width: 240px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--border);
 }
 
-.provider-card .details {
-  padding: 25px;
-}
-
-.provider-card h2 {
-  font-size: 22px;
-  margin-bottom: 8px;
+/* DETAILS */
+.details h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
 }
 
 .badge {
   display: inline-block;
-  background: #e0f2fe;
-  color: #0284c7;
-  padding: 4px 10px;
+  background: rgba(37,99,235,0.1);
+  color: var(--primary);
+  font-size: 0.85rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 20px;
-  font-size: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 0.8rem;
 }
 
-/* ---------- STATS ---------- */
 .stats {
   display: flex;
-  gap: 20px;
-  font-size: 14px;
-  color: #475569;
-  margin-bottom: 12px;
+  gap: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.stats i {
+  color: var(--primary);
 }
 
 .about {
-  font-size: 14px;
-  color: #334155;
-  margin-bottom: 15px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 .extra {
   display: flex;
-  gap: 20px;
-  font-size: 13px;
-  color: #475569;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--secondary);
 }
 
-/* ---------- BOOKING CARD ---------- */
+.extra i {
+  color: var(--primary);
+}
+
+/* =========================
+   BOOKING CARD
+========================= */
 .booking-card {
-  background: white;
-  border-radius: 16px;
-  padding: 25px;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
-  position: sticky;
-  top: 20px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
 .booking-card h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 
-/* ---------- FORM ---------- */
-label {
-  font-size: 13px;
-  margin-bottom: 5px;
-  display: block;
+/* FORM */
+.booking-card label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
 }
 
-input {
+.booking-card input {
   width: 100%;
-  padding: 10px;
+  padding: 0.7rem 0.8rem;
   border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  margin-bottom: 15px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
-input:focus {
+.booking-card input:focus {
   outline: none;
-  border-color: #2563eb;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
 }
 
-/* ---------- BUTTON ---------- */
-button {
+/* BUTTON */
+.booking-card button {
   width: 100%;
-  padding: 12px;
-  background: #2563eb;
-  color: white;
+  padding: 0.8rem;
+  border-radius: 30px;
   border: none;
-  border-radius: 10px;
-  font-size: 14px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
+  box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+  transition: 0.3s;
 }
 
-button:hover {
-  background: #1d4ed8;
+.booking-card button:hover {
+  transform: translateY(-2px);
 }
 
-/* ---------- PRICE BOX ---------- */
+/* PRICE BOX */
 .price-box {
-  margin-top: 20px;
-  background: #f8fafc;
-  border-radius: 12px;
-  padding: 15px;
+  margin-top: auto;
+  background: #eef2ff;
+  padding: 1.5rem;
+  border-radius: var(--radius);
   text-align: center;
 }
 
 .price-box p {
-  font-size: 13px;
-  color: #64748b;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
 .price-box h2 {
-  font-size: 26px;
-  color: #16a34a;
+  font-size: 2rem;
+  margin: 0.3rem 0;
+  color: var(--primary);
 }
 
 .price-box span {
-  font-size: 12px;
-  color: #475569;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 900px) {
   .booking-wrapper {
     grid-template-columns: 1fr;
@@ -179,10 +239,39 @@ button:hover {
 
   .provider-card {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  .provider-card img {
-    width: 100%;
-    height: 220px;
+  .stats,
+  .extra {
+    justify-content: center;
+    flex-wrap: wrap;
   }
+}
+/* =========================
+   ADDRESS & PINCODE
+========================= */
+.booking-card textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  resize: none;
+}
+
+.booking-card textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+.booking-card input[name="pincode"] {
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: 500;
 }

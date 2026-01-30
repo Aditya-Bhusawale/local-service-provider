@@ -21,7 +21,12 @@
   <div class="profile-card">
     <!-- LEFT -->
     <div class="profile-left">
-      <img src="/images/provider.png" class="avatar">
+      <img
+  src="<%= provider.image || 'https://cdn-icons-png.flaticon.com/512/4140/4140048.png' %>"
+  class="avatar"
+  alt="Provider"
+  onerror="this.onerror=null;this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png';">
+
       <h2><%= provider.name %></h2>
       <span class="badge">Edit Mode</span>
     </div>

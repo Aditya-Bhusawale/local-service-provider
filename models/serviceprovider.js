@@ -70,6 +70,10 @@ const serviceProviderSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+   address: {
+    type: String,
+    required: false
+  },
 
   // TIMESTAMPS
   createdAt: {

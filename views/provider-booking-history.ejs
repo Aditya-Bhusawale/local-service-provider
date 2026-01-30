@@ -35,34 +35,46 @@
   <% bookings.forEach(booking => { %>
     <div class="booking-card">
 
-      <div class="booking-left">
-        <h3><%= booking.serviceName %></h3>
+    <div class="booking-left">
+      <h3><%= booking.serviceName || booking.providerId?.serviceType || "Service" %></h3>
 
-        <p>
-          Customer:
-          <%= booking.userId ? booking.userId.name : "Not Available" %>
-        </p>
+      <p>
+        <strong>Customer:</strong>
+        <%= booking.userId ? booking.userId.name : "Not Available" %>
+      </p>
 
-        <p>
-          Date: <%= booking.date %> | Time: <%= booking.time %>
-        </p>
-      </div>
+      <p>
+        <strong>Phone:</strong>
+        <%= booking.userId?.phone || "Not Available" %>
+      </p>
 
-      <div class="booking-right">
-        <span class="status <%= booking.status.toLowerCase() %>">
-          <%= booking.status %>
-        </span>
-        <p class="price">
-        <%= new Intl.NumberFormat('en-IN', {
-                style: 'currency',
-                currency: 'INR'
-            }).format(booking.price) %>
-        </p>
+      <p>
+        <strong>Date:</strong> <%= booking.date %>
+        &nbsp;|&nbsp;
+        <strong>Time:</strong> <%= booking.time %>
+      </p>
 
-
-      </div>
-
+      <p>
+        <strong>Address:</strong>
+        <%= booking.address %>, <%= booking.pincode %>
+      </p>
     </div>
+
+    <div class="booking-right">
+      <span class="status <%= booking.status.toLowerCase() %>">
+        <%= booking.status %>
+      </span>
+
+      <p class="price">
+        <%= new Intl.NumberFormat('en-IN', {
+          style: 'currency',
+          currency: 'INR'
+        }).format(booking.price || booking.providerId?.pricePerVisit || 0) %>
+      </p>
+    </div>
+
+  </div>
+
   <% }) %>
 
 </div>

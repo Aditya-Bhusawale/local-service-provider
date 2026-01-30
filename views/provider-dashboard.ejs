@@ -26,7 +26,12 @@
 
   <!-- ================= PROFILE CARD ================= -->
   <section class="profile-card">
-    <img src="/images/default-provider.png" alt="Provider">
+   <img
+  src="<%= provider.image || 'https://cdn-icons-png.flaticon.com/512/4140/4140048.png' %>"
+  class="avatar"
+  alt="Provider"
+  onerror="this.onerror=null;this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png';">
+
 
     <div>
       <h3><%= provider.name %></h3>
@@ -97,9 +102,20 @@
             <% } %>
 
             <p>
-              <i class="fas fa-calendar"></i>
-              <%= b.date %> • <%= b.time %>
-            </p>
+            <i class="fas fa-calendar"></i>
+            <%= b.date %> • <%= b.time %>
+          </p>
+
+          <p class="info-line">
+            <i class="fas fa-location-dot"></i>
+            <%= b.address %>, <strong><%= b.pincode %></strong>
+          </p>
+
+          <p class="info-line">
+            <i class="fas fa-phone"></i>
+            <%= b.userId && b.userId.phone ? b.userId.phone : "Not available" %>
+          </p>
+
           </div>
 
           <div class="actions">

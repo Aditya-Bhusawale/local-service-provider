@@ -12,7 +12,7 @@
 
 <header class="topbar">
   <div class="logo">ServiceHub</div>
-  <a href="/provider-selection" class="back">
+  <a href="/services" class="back">
     <i class="fas fa-arrow-left"></i> Back
   </a>
 </header>
@@ -21,7 +21,11 @@
 
   <!-- PROVIDER CARD -->
   <section class="provider-card">
-    <img src="/images/default-provider.png" alt="Provider">
+    <img 
+  src="<%= provider.image || 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' %>" 
+  alt="Provider"
+  onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png';">
+
 
     <div class="details">
       <h2><%= provider.name %></h2>
@@ -51,6 +55,25 @@
     <form action="/confirm-booking" method="POST">
       <input type="hidden" name="providerId" value="<%= provider._id %>">
 
+      <!-- NEW: USER ADDRESS -->
+      <label>Service Address</label>
+      <textarea 
+        name="address" 
+        rows="3" 
+        placeholder="Enter your full address" 
+        required
+        style="resize:none; border-radius:10px; padding:0.7rem; border:1px solid #e5e7eb; font-family:Poppins;">
+      </textarea>
+
+      <!-- NEW: PINCODE -->
+      <label>Pincode</label>
+      <input 
+        type="text" 
+        name="pincode" 
+        pattern="[0-9]{6}" 
+        placeholder="6-digit pincode" 
+        required>
+
       <label>Date</label>
       <input type="date" name="date" required>
 
@@ -61,6 +84,7 @@
         <i class="fas fa-calendar-check"></i> Confirm Booking
       </button>
     </form>
+
 
     <div class="price-box">
       <p>Service Price</p>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Transactions</title>
+  <link rel="stylesheet" href="/css/user-transaction.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>ServiceHub</h1>
+  <div class="nav">
+    <a href="/services">Services</a>
+    <a href="/my-booking">My Transactions</a>
+    <a href="/user-profile">Profile</a>
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <h2>My Transaction History</h2>
+
+  <% if (bookings.length === 0) { %>
+    <p class="empty">No transactions found</p>
+  <% } %>
+
+  <% bookings.forEach(b => { %>
+    <div class="transaction-card">
+
+      <div class="left">
+        <h3><%= b.serviceName %></h3>
+        <p>Provider: <%= b.providerId?.name || "Not Assigned" %></p>
+        <p>Date: <%= b.date %> | Time: <%= b.time %></p>
+      </div>
+
+      <div class="right">
+        <span class="status <%= b.status.toLowerCase() %>">
+          <%= b.status %>
+        </span>
+
+        <p class="amount">₹ <%= b.price %></p>
+
+        <p class="txn">
+          Txn ID: <%= b.transactionId || "N/A" %>
+        </p>
+
+        <p class="mode">
+          Mode: <%= b.paymentMode || "Cash" %>
+        </p>
+
+        <p class="pay-status <%= (b.paymentStatus || 'paid').toLowerCase() %>">
+          <%= b.paymentStatus || "Paid" %>
+        </p>
+      </div>
+
+    </div>
+  <% }) %>
+
+</div>
+
+</body>
+</html>
